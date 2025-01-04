@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Hamburger = () => {
   return (
     <div className="drawer">
@@ -70,6 +72,11 @@ const Hamburger = () => {
                 </li>
               </ul>
             </details>
+          </li>
+          <li>
+            <Link href="board">
+            Board
+            </Link>
           </li>
         </ul>
       </div>
