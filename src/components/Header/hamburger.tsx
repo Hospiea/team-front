@@ -29,12 +29,12 @@ const Hamburger = () => {
           className="drawer-overlay"
         ></label>
         <ul className="text-black w-[40%] h-[100%] menu menu-vertical bg-base-200 rounded-box">
-          <li>
-            <h1>Shop</h1>
-          </li>
+          {/* <li>
+            <h1>Blog</h1>
+          </li> */}
           <li>
             <details open>
-              <summary>Parent item</summary>
+              <summary>Rust</summary>
               <ul>
                 <li>
                   <a>Submenu 1</a>
@@ -59,17 +59,17 @@ const Hamburger = () => {
             </details>
           </li>
           <li>
-            <details open>
-                    <summary>Parent</summary>
-                    <ul>
-                      <li>
-                        <a>item 1</a>
-                      </li>
-                      <li>
-                        <a>item 2</a>
-                      </li>
-                    </ul>
-                  </details>
+            <details>
+              <summary>C++</summary>
+              <ul>
+                <li>
+                  <a>item 1</a>
+                </li>
+                <li>
+                  <a>item 2</a>
+                </li>
+              </ul>
+            </details>
           </li>
         </ul>
       </div>

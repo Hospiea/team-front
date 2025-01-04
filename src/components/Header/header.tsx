@@ -13,7 +13,6 @@ const HeaderComponent = () => {
         <Link href="/">
           Home
         </Link>
-        
       </div>
     </header>
   )
