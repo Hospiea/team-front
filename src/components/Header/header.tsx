@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Hamburger from "./hamburger";
 import styles from "./style.module.css";
 
@@ -9,9 +10,9 @@ const HeaderComponent = () => {
         <div className={styles.hamburger}>
           <Hamburger />
         </div>
-        <div>
+        <Link href="/">
           Home
-        </div>
+        </Link>
         
       </div>
     </header>

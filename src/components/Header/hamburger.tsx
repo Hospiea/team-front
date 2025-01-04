@@ -28,13 +28,38 @@ const Hamburger = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-          {/* Sidebar content here */}
+        <ul className="text-black w-[40%] h-[100%] menu lg:menu-horizontal bg-base-200 rounded-box lg:mb-64">
           <li>
-            <a>Sidebar Item 1</a>
+            <h1>Shop</h1>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <details open>
+              <summary>Parent item</summary>
+              <ul>
+                <li>
+                  <a>Submenu 1</a>
+                </li>
+                <li>
+                  <a>Submenu 2</a>
+                </li>
+                {/* <li>
+                  <details open>
+                    <summary>Parent</summary>
+                    <ul>
+                      <li>
+                        <a>item 1</a>
+                      </li>
+                      <li>
+                        <a>item 2</a>
+                      </li>
+                    </ul>
+                  </details>
+                </li> */}
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a>Item 3</a>
           </li>
         </ul>
       </div>

@@ -30,7 +30,9 @@ export default function RootLayout({
       <body className={`antialiased ${styles.outer}`}>
         <div className="font-custom">
           <HeaderComponent />
+          <div className={styles.container}>
           {children}
+          </div>
           <FooterComponent />
         </div>
       </body>
