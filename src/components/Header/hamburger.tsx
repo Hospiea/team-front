@@ -36,7 +36,7 @@ const Hamburger = () => {
           </li> */}
           <li>
             <details open>
-              <summary>Rust</summary>
+              <summary>강아지</summary>
               <ul>
                 <li>
                   <a>Submenu 1</a>
@@ -62,7 +62,7 @@ const Hamburger = () => {
           </li>
           <li>
             <details>
-              <summary>C++</summary>
+              <summary>고양이</summary>
               <ul>
                 <li>
                   <a>item 1</a>
@@ -75,7 +75,7 @@ const Hamburger = () => {
           </li>
           <li>
             <Link href="board">
-            Board
+            게시판
             </Link>
           </li>
         </ul>

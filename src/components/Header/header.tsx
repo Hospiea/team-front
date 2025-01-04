@@ -11,7 +11,7 @@ const HeaderComponent = () => {
           <Hamburger />
         </div>
         <Link href="/">
-          Home
+          Pet
         </Link>
       </div>
     </header>
