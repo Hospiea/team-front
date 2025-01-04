@@ -1,19 +1,9 @@
+import FooterComponent from "@/components/Footer/footer";
+import HeaderComponent from "@/components/Header/header";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import styles from "./style.module.css";
-import HeaderComponent from "@/components/Header/header";
-import FooterComponent from "@/components/Footer/footer";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { QueryProvider } from "@/hooks/provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,15 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`antialiased ${styles.outer}`}>
-        <div className="font-custom">
-          <HeaderComponent />
-          <div className={styles.container}>
-          {children}
+      <QueryProvider>
+        <body className={`antialiased ${styles.outer}`}>
+          <div className="font-custom">
+            <HeaderComponent />
+            <div className={styles.container}>{children}</div>
+            <FooterComponent />
           </div>
-          <FooterComponent />
-        </div>
-      </body>
+        </body>
+      </QueryProvider>
     </html>
   );
 }
