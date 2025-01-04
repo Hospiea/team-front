@@ -1,0 +1,15 @@
+.container {
+  background-color: #011627;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* position: absolute; */
+  height: 5vh;
+  color: white;
+}
+
+.hamburger {
+  position: absolute;
+  left: 0%;
+}
