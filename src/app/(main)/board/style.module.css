@@ -14,8 +14,8 @@
 .container {
   width: 80vw;
   height: fit-content;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .outliner {
