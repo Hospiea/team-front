@@ -25,7 +25,9 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      asdf
+      <div className={styles.center}>
+        <img src="/images/main.png" alt="No Source" />
+      </div>
     </div>
   );
 }

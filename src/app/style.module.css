@@ -13,5 +13,20 @@
   height: 95vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+}
+
+.center {
+  margin-top: 5%;
+  width: 50%;
+  height: 50%;
+  box-shadow: 2px 2px 2px gray;
+}
+
+@media (max-width: 768px) {
+  .center {
+    margin-top: 40%;
+    width: 80%;
+    height: 30%;
+  }
 }
