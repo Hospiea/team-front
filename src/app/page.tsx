@@ -3,30 +3,32 @@ import Image from "next/image";
 import styles from "./style.module.css";
 import { useEffect } from "react";
 import axios from "axios";
+import Link from "next/link";
+import { KAKAO_REDIRECT_URI, KAKAO_REST_API_KEY } from "@/config/config";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const init = async () => {
+  const router = useRouter();
+
+  const handleKakaoLogin = async () => {
     try{
-      const response = await axios.post("http://localhost:5050/user", {
-        name: "Hello",
-        email: "asdf",
-        gender: "MALE",
-        age: 24,
-      });
-      console.log(response.data);
+      router.push(`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}`);
+      
     } catch(e) {
       console.log(e);
     }
   }
-
-  useEffect(() => {
-    init();
-  }, []);
+  
 
   return (
     <div className={styles.container}>
       <div className={styles.center}>
         <img src="/images/main.png" alt="No Source" />
+        <div className="flex justify-center mt-4">
+          <button onClick={handleKakaoLogin}>
+            <img src="/images/kakao.png" alt="No Source" />
+          </button>
+        </div>
       </div>
     </div>
   );
