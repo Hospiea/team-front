@@ -1,11 +1,7 @@
 "use client";
-import Image from "next/image";
-import styles from "./style.module.css";
-import { useEffect } from "react";
-import axios from "axios";
-import Link from "next/link";
 import { KAKAO_REDIRECT_URI, KAKAO_REST_API_KEY } from "@/config/config";
 import { useRouter } from "next/navigation";
+import styles from "./style.module.css";
 
 export default function Home() {
   const router = useRouter();
