@@ -30,8 +30,10 @@ const BoardEnrollPage = () => {
   };
 
   useEffect(() => {
-    userId.current = localStorage.getItem("user_id") ? Number(localStorage.getItem("user_id")) : -1;
-  }, []);
+    if (typeof window !== "undefined") {
+      const storedUserId = localStorage.getItem("user_id");
+      userId.current = storedUserId ? Number(storedUserId) : -1;
+    }  }, []);
 
   return (
     <div className={styles.outline}>
