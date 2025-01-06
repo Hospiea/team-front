@@ -22,7 +22,7 @@ export default function Home() {
     }
   };
 
-  const testFunc = async () => {
+  const handleCreateTravel = async () => {
     try {
       if(context.userId === -1) {
         localStorage.getItem("user_id");
@@ -31,7 +31,7 @@ export default function Home() {
       const response = await axiosInstance.post(`${BACKEND_URL}/travel`, {
         id: context.userId,
       });
-
+      console.log(response.data);
     } catch(e) {
       console.log(e);
     }
@@ -45,14 +45,13 @@ export default function Home() {
       setLogin(false);
       context.setLogin(false);
     }
-    testFunc();
 
   }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.center}>
-        <img src="/images/main.png" alt="No Source" />
+        <img className="cursor-pointer" onClick={handleCreateTravel} src="/images/main.png" alt="No Source" />
         <div className="flex justify-center mt-4">
           {!login ? (
             <button onClick={handleKakaoLogin}>
