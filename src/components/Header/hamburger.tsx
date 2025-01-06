@@ -31,7 +31,7 @@ const Hamburger = () => {
           aria-label="close sidebar"
           className="drawer-overlay"></label>
         <ul className="text-black w-[40%] h-[100%] menu menu-vertical bg-base-200 rounded-box">
-          <li>
+          <li className="mt-[5%]">
             <details open>
               <summary>여행</summary>
               <ul>
@@ -65,7 +65,7 @@ const Hamburger = () => {
             </details>
           </li>
           <li>
-            <Link href="board">게시판</Link>
+            <Link href={`${FRONT_URL}/board`}>게시판</Link>
           </li>
         </ul>
       </div>

@@ -23,7 +23,6 @@ const BoardPage = () => {
             {data.map((item) => {
               return (
                 <div className={styles.item} key={item.id}>
-                  <div>글번호: {item.id}</div>
                   <div>글쓴이: {item.name}</div>
                   <div>글제목: {item.title}</div>
                 </div>
