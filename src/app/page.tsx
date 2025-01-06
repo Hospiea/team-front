@@ -54,6 +54,7 @@ export default function Home() {
         <img className="cursor-pointer" onClick={handleCreateTravel} src="/images/main.png" alt="No Source" />
         <div className="flex justify-center mt-4">
           {!login ? (
+            // <button onClick={handleKakaoLogin}>
             <button onClick={handleKakaoLogin}>
               <img src="/images/kakao.png" alt="No Source" />
             </button>
