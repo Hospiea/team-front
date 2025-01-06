@@ -1,12 +1,11 @@
 "use client";
-import { useContext, useEffect, useRef, useState } from "react";
-import styles from "./style.module.css";
-import { BoardEnrollment, defaultBoardEnrollment } from "@/types/board";
-import axios from "axios";
 import { BACKEND_URL } from "@/config/config";
-import { useRouter } from "next/navigation";
+import { BoardEnrollment, defaultBoardEnrollment } from "@/types/board";
 import { axiosInstance } from "@/utils/axiosInstance";
 import { Context } from "@/utils/context";
+import { useRouter } from "next/navigation";
+import { useContext, useState } from "react";
+import styles from "./style.module.css";
 
 const BoardEnrollPage = () => {
   const router = useRouter();
