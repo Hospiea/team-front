@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./style.module.css";
 import { BoardEnrollment, defaultBoardEnrollment } from "@/types/board";
 import axios from "axios";
@@ -10,6 +10,7 @@ import { axiosInstance } from "@/utils/axiosInstance";
 const BoardEnrollPage = () => {
   const router = useRouter();
   const [input, setInput] = useState<BoardEnrollment>(defaultBoardEnrollment);
+  const userId = useRef(-1);
 
   const handleSubmit = async () => {
     try {
@@ -17,7 +18,7 @@ const BoardEnrollPage = () => {
         name: input.name,
         title: input.title,
         content: input.content,
-        user_id: Number(localStorage.getItem("user_id") as string),
+        user_id: userId.current,
       });
       if (response) {
         alert("등록되었습니다.");
@@ -27,6 +28,10 @@ const BoardEnrollPage = () => {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    userId.current = localStorage.getItem("user_id") ? Number(localStorage.getItem("user_id")) : -1;
+  }, []);
 
   return (
     <div className={styles.outline}>
