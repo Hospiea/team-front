@@ -1,3 +1,4 @@
+import { FRONT_URL } from "@/config/config";
 import Link from "next/link";
 
 const Hamburger = () => {
@@ -36,13 +37,20 @@ const Hamburger = () => {
           </li> */}
           <li>
             <details open>
-              <summary>강아지</summary>
+              <summary>여행</summary>
               <ul>
                 <li>
-                  <a>Submenu 1</a>
+                    <Link href={`${FRONT_URL}/trip/tour`}>관광</Link>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <label htmlFor="my-drawer">
+                    <Link href={`${FRONT_URL}/trip/transport`}>교통</Link>
+                  </label>
+                </li>
+                <li>
+                  <label htmlFor="my-drawer">
+                    <Link href={`${FRONT_URL}/trip/accomodation`}>숙박</Link>
+                  </label>
                 </li>
                 {/* <li>
                   <details open>
@@ -74,9 +82,7 @@ const Hamburger = () => {
             </details>
           </li>
           <li>
-            <Link href="board">
-            게시판
-            </Link>
+            <Link href="board">게시판</Link>
           </li>
         </ul>
       </div>
