@@ -3,6 +3,8 @@ export type ContextType = {
   setLogin: (value: boolean) => void;
   accessToken: string;
   setAccessToken: (value: string) => void;
+  userId: number;
+  setUserId: (value: number) => void;
 }
 
 export const defaultContextType = {
@@ -10,4 +12,6 @@ export const defaultContextType = {
   setLogin: () => {},
   accessToken: "",
   setAccessToken: () => {},
+  userId: -1,
+  setUserId: () => {},
 }
