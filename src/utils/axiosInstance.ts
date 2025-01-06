@@ -1,7 +1,5 @@
 import { BACKEND_URL } from "@/config/config";
 import axios from "axios";
-import { useContext } from "react";
-import { Context } from "./context";
 
 
 export const axiosInstance = axios.create({
