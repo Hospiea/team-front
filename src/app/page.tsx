@@ -1,9 +1,11 @@
 "use client";
-import { KAKAO_REDIRECT_URI, KAKAO_REST_API_KEY } from "@/config/config";
+import { BACKEND_URL, KAKAO_REDIRECT_URI, KAKAO_REST_API_KEY } from "@/config/config";
 import { useRouter } from "next/navigation";
 import styles from "./style.module.css";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "@/utils/context";
+import axios from "axios";
+import { axiosInstance } from "@/utils/axiosInstance";
 
 export default function Home() {
   const router = useRouter();
@@ -20,6 +22,21 @@ export default function Home() {
     }
   };
 
+  const testFunc = async () => {
+    try {
+      if(context.userId === -1) {
+        localStorage.getItem("user_id");
+        context.setUserId(Number(localStorage.getItem("user_id")));
+      }
+      const response = await axiosInstance.post(`${BACKEND_URL}/travel`, {
+        id: context.userId,
+      });
+
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
     if (localStorage.getItem("access_token")) {
       setLogin(true);
@@ -28,6 +45,8 @@ export default function Home() {
       setLogin(false);
       context.setLogin(false);
     }
+    testFunc();
+
   }, []);
 
   return (
