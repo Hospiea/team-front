@@ -31,7 +31,9 @@ const KakaoAuthContentPage = () => {
         };
         const result = await axios.post(`${BACKEND_URL}/user`, loginRequest);
         if(result) {
+          console.log(result.data);
           localStorage.setItem("access_token", response.data.access_token);
+          localStorage.setItem("user_id", result.data.id);
           router.push("/");
         }
       }

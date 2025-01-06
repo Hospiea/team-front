@@ -29,12 +29,8 @@ const Hamburger = () => {
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay"
-        ></label>
+          className="drawer-overlay"></label>
         <ul className="text-black w-[40%] h-[100%] menu menu-vertical bg-base-200 rounded-box">
-          {/* <li>
-            <h1>Blog</h1>
-          </li> */}
           <li>
             <details open>
               <summary>여행</summary>
@@ -52,19 +48,6 @@ const Hamburger = () => {
                     <Link href={`${FRONT_URL}/trip/accomodation`}>숙박</Link>
                   </label>
                 </li>
-                {/* <li>
-                  <details open>
-                    <summary>Parent</summary>
-                    <ul>
-                      <li>
-                        <a>item 1</a>
-                      </li>
-                      <li>
-                        <a>item 2</a>
-                      </li>
-                    </ul>
-                  </details>
-                </li> */}
               </ul>
             </details>
           </li>
