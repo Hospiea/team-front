@@ -3,7 +3,11 @@ import axios from "axios"
 
 const get = async (url: string) => {
   try{
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`
+      }
+    });
     return data;
   } catch(e) {
     console.log(e);

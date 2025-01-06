@@ -25,6 +25,7 @@ export interface KakaoTokenResponse {
 	nickname: string;
 	profile_image?: string;
 	thumbnail_image: string;
+	id: number;
 }
 
 export interface LoginRequest {
@@ -38,5 +39,6 @@ export interface UserDto {
 	profile_image?: string;
 	age?: number;
 	gender?: string;
+	kakao_id?: number;
 }
 
