@@ -13,9 +13,10 @@ const TravelPage = () => {
     console.log(data);
   }, [data]);
 
-  return(
+  if(!isLoading) {
+    return(
     <div>
-      {data.map((item: BoardList, index: number) => { 
+      {data?.map((item: BoardList, index: number) => { 
         return(
           <div key={index}>
             <div>{item.title}</div>
@@ -24,6 +25,8 @@ const TravelPage = () => {
       })}
     </div>
   )
+  }
+  
 }
 
 export default TravelPage;

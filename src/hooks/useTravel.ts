@@ -6,7 +6,7 @@ import { useQuery, UseQueryOptions } from "@tanstack/react-query"
 import { useContext } from "react";
 
 
-const useTravel = (options?: UseQueryOptions<null, unknown, BoardList>) => {
+const useTravel = (options?: UseQueryOptions<null, unknown, BoardList[]>) => {
   const {userId} = useContext(Context);
 
   return useQuery({
@@ -14,7 +14,9 @@ const useTravel = (options?: UseQueryOptions<null, unknown, BoardList>) => {
     queryFn: async () => {
       const response = await axiosInstance.get(`${BACKEND_URL}/travel/${userId}`);
       return response.data
-  }});
+    },
+    ...options
+    });
 }
 
 export default useTravel;
