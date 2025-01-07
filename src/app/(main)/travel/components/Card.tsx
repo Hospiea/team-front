@@ -1,10 +1,12 @@
+import { BoardList } from "@/types/board";
+import styles from "./card.module.css";
 
 
-const TravelCardComponent = () => {
+const TravelCardComponent = ({title}: BoardList) => {
 
   return(
-    <div>
-
+    <div className={styles.item}>
+      {title}
     </div>
   )
 }
