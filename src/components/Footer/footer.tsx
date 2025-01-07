@@ -1,6 +1,11 @@
+"use client";
+import useAuth from "@/hooks/useAuth";
 import styles from "./style.module.css";
 
 const FooterComponent = () => {
+
+  useAuth();
+
   return (
     <footer className="footer bg-neutral text-neutral-content p-10">
       <aside>
