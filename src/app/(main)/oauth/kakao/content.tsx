@@ -1,12 +1,14 @@
 import { BACKEND_URL, KAKAO_REDIRECT_URI, KAKAO_REST_API_KEY } from "@/config/config";
 import { LoginRequest } from "@/types/dto";
+import { Context } from "@/utils/context";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 
 const KakaoAuthContentPage = () => {
   const params = useSearchParams();
   const router = useRouter();
+  const { setLogin, setUserId, setAccessToken } = useContext(Context);
 
   const handleLogin = async (code: string) => {
     try {
@@ -34,6 +36,9 @@ const KakaoAuthContentPage = () => {
           console.log(result.data);
           localStorage.setItem("access_token", result.data.access_token);
           localStorage.setItem("user_id", result.data.id);
+          setUserId(result.data.id);
+          setAccessToken(result.data.access_token);
+          setLogin(true);
           router.push("/");
         }
       }

@@ -1,11 +1,16 @@
-
-.item {
+.container {
+  height: 100%;
+  width: 100%;
   border: 1px solid black;
-  padding: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.outline {
+  border: 1.5px solid black;
+  padding: 8em;
   border-radius: 1em;
-  cursor: pointer;
   box-shadow: 2px 2px 2px gray;
 }

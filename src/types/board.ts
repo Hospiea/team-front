@@ -1,3 +1,5 @@
+import { UserDto } from "./dto";
+
 export interface BoardEnrollment {
   name: string;
   title: string;
@@ -12,5 +14,11 @@ export const defaultBoardEnrollment: BoardEnrollment = {
 };
 
 export type BoardList = {
+  id?: number;
   title: string;
+}
+
+export type DetailTravel = {
+  travel: BoardList;
+  members: UserDto[];
 }

@@ -9,8 +9,7 @@ import { axiosInstance } from "@/utils/axiosInstance";
 
 export default function Home() {
   const router = useRouter();
-  const [login, setLogin] = useState(true);
-  const context = useContext(Context);
+  const { login, setLogin, userId, setUserId } = useContext(Context);
 
   const handleKakaoLogin = async () => {
     try {
@@ -24,12 +23,12 @@ export default function Home() {
 
   const handleCreateTravel = async () => {
     try {
-      if(context.userId === -1) {
+      if(userId === -1) {
         localStorage.getItem("user_id");
-        context.setUserId(Number(localStorage.getItem("user_id")));
+        setUserId(Number(localStorage.getItem("user_id")));
       }
       const response = await axiosInstance.post(`${BACKEND_URL}/travel`, {
-        id: context.userId,
+        id: userId,
       });
       console.log(response.data);
     } catch(e) {
@@ -41,16 +40,7 @@ export default function Home() {
     router.push("/travel")
   }
 
-  useEffect(() => {
-    if (localStorage.getItem("access_token")) {
-      setLogin(true);
-      context.setLogin(true);
-    } else {
-      setLogin(false);
-      context.setLogin(false);
-    }
-
-  }, []);
+  
 
   return (
     <div className={styles.container}>

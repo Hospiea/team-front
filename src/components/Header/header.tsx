@@ -11,10 +11,12 @@ const HeaderComponent = () => {
   useEffect(() => {
     if(accessToken === "") {
       const token = localStorage.getItem("access_token");
-      const id = localStorage.getItem("user_id");
       if(token) {
         setAccessToken(token);
-        setUserId(Number(id));
+      }
+      const userId = localStorage.getItem("user_id");
+      if(userId) {
+        setUserId(Number(userId));
       }
     }
   }, []);

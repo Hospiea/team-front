@@ -3,17 +3,12 @@ import useBoard from "@/hooks/useBoard";
 import { useEffect } from "react";
 import styles from "./style.module.css";
 import { useRouter } from "next/navigation";
+import { FRONT_URL } from "@/config/config";
 
 const BoardPage = () => {
   const router = useRouter();
 
   const { data, error, isLoading } = useBoard();
-
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  }, [data]);
 
   if (data) {
     return (

@@ -1,7 +1,22 @@
 import { FRONT_URL } from "@/config/config";
+import { Context } from "@/utils/context";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
 
 const Hamburger = () => {
+  const { login, setLogin, setAccessToken } = useContext(Context);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("user_id");
+    setLogin(false);
+    setAccessToken("");
+    //router.push("/");
+    router.refresh();
+  }
+
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -68,6 +83,7 @@ const Hamburger = () => {
           </li>
           <li>
             <Link href={`${FRONT_URL}/board`}>게시판</Link>
+            {login && <button onClick={handleLogout}>로그아웃</button>}
           </li>
         </ul>
       </div>

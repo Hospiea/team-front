@@ -1,6 +1,6 @@
 "use client";
 
-import useTravel from "@/hooks/useTravel";
+import { useTravel } from "@/hooks/useTravel";
 import { BoardList } from "@/types/board";
 import { useEffect } from "react";
 import TravelCardComponent from "./components/Card";
