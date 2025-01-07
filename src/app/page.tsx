@@ -37,6 +37,10 @@ export default function Home() {
     }
   }
 
+  const handleShowTravel = () => {
+    router.push("/travel")
+  }
+
   useEffect(() => {
     if (localStorage.getItem("access_token")) {
       setLogin(true);
@@ -51,10 +55,9 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.center}>
-        <img className="cursor-pointer" onClick={handleCreateTravel} src="/images/main.png" alt="No Source" />
+        <img className="cursor-pointer" onClick={handleShowTravel} src="/images/main.png" alt="No Source" />
         <div className="flex justify-center mt-4">
           {!login ? (
-            // <button onClick={handleKakaoLogin}>
             <button onClick={handleKakaoLogin}>
               <img src="/images/kakao.png" alt="No Source" />
             </button>

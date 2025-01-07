@@ -36,7 +36,9 @@ const Hamburger = () => {
               <summary>여행</summary>
               <ul>
                 <li>
+                  <label htmlFor="my-drawer">
                     <Link href={`${FRONT_URL}/trip/tour`}>관광</Link>
+                  </label>
                 </li>
                 <li>
                   <label htmlFor="my-drawer">

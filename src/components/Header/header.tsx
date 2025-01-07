@@ -26,7 +26,7 @@ const HeaderComponent = () => {
           <Hamburger />
         </div>
         <Link href="/">
-          Blog
+          Rust
         </Link>
       </div>
     </header>

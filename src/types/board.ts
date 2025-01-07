@@ -10,3 +10,7 @@ export const defaultBoardEnrollment: BoardEnrollment = {
   title: "",
   content: "",
 };
+
+export type BoardList = {
+  title: string;
+}
