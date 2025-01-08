@@ -30,6 +30,10 @@ export default function Home() {
   }
 
   const handleCreateTravel = () => {
+    if(!login) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
     router.push("/travel/create")
   }
 
