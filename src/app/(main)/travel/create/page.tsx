@@ -12,14 +12,22 @@ const CreateTravelPage = () => {
 
   const handleCreateTravel = async () => {
       try {
+        if(value === "") {
+          alert("모임명을 입력해주세요");
+          return;
+        }
+
         if(userId === -1) {
           localStorage.getItem("user_id");
           setUserId(Number(localStorage.getItem("user_id")));
         }
+
         const response = await axiosInstance.post(`${BACKEND_URL}/travel`, {
           id: userId,
+          title: value,
         });
-        console.log(response.data);
+        
+        alert("모임이 생성되었습니다.");
       } catch(e) {
         console.log(e);
       }
