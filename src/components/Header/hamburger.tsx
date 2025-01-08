@@ -13,7 +13,7 @@ const Hamburger = () => {
     localStorage.removeItem("user_id");
     setLogin(false);
     setAccessToken("");
-    //router.push("/");
+    router.push("/");
     router.refresh();
   }
 
@@ -81,10 +81,12 @@ const Hamburger = () => {
               </ul>
             </details>
           </li>
+          <label htmlFor="my-drawer">
           <li>
             <Link href={`${FRONT_URL}/board`}>게시판</Link>
             {login && <button onClick={handleLogout}>로그아웃</button>}
           </li>
+          </label>
         </ul>
       </div>
     </div>

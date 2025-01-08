@@ -1,11 +1,8 @@
 "use client";
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import Hamburger from "./hamburger";
 import styles from "./style.module.css";
-import { useContext, useEffect } from "react";
-import { Context } from "@/utils/context";
-import { usePathname } from "next/navigation";
-import useAuth from "@/hooks/useAuth";
 
 const HeaderComponent = () => {
   
