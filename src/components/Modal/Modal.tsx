@@ -1,12 +1,39 @@
-import { useEffect, useRef } from "react";
+import { BACKEND_URL, FRONT_URL } from "@/config/config";
+import { axiosInstance } from "@/utils/axiosInstance";
+import axios from "axios";
+import { useEffect, useRef, useState } from "react";
 
-const ModalComponent = () => {
-  
+type Props = {
+  id: number | undefined;
+}
+
+const ModalComponent = ({id}: Props) => {
+  const [link, setLink] = useState<string>("");
   const ref = useRef<HTMLDialogElement>(null);
 
   const handlePush = () => {
     ref.current?.showModal();
+    init();
   }
+
+  const init = async () => {
+    try {
+      const response = await axiosInstance.post(`${BACKEND_URL}/travel/share`, {
+        id: id,
+      });
+      const frontLink = `${FRONT_URL}${response.data}`;
+      setLink(frontLink);
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(link);
+    alert("복사되었습니다.");
+    ref.current?.close();
+  }
+ 
   
   return (
     <div>
@@ -19,11 +46,12 @@ const ModalComponent = () => {
       <dialog ref={ref} id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
           <h3 className="font-bold text-lg">초대링크</h3>
-          
+          {link}
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button, it will close the modal */}
-              <button className="btn">Close</button>
+              <button onClick={handleCopy} className="btn">복사</button>
+              <button className="btn">닫기</button>
             </form>
           </div>
         </div>

@@ -21,6 +21,14 @@ export default function Home() {
     }
   };
 
+  const handleJoinTravel = () => {
+    if(!login) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
+    router.push("/share");
+  }
+
   const handleCreateTravel = async () => {
     try {
       if(userId === -1) {
@@ -49,12 +57,6 @@ export default function Home() {
       setLogin(true);
     }
 
-    return () => {
-      if(!login) {
-        alert("로그인이 필요합니다.");
-        router.push("/");
-      }
-    }
   }, []);
   
 
@@ -63,11 +65,20 @@ export default function Home() {
       <div className={styles.center}>
         <img className="cursor-pointer" onClick={handleShowTravel} src="/images/main.png" alt="No Source" />
         <div className="flex justify-center mt-4">
-          {!login && (
+          
+          <div className="flex flex-col gap-8 mt-8">
+            {!login && (
             <button onClick={handleKakaoLogin}>
               <img src="/images/kakao.png" alt="No Source" />
             </button>
           )}
+          <button onClick={handleCreateTravel}>
+            여행 만들기
+          </button>
+          <button onClick={handleJoinTravel}>
+            여행 참여하기
+          </button>
+          </div>
         </div>
       </div>
     </div>

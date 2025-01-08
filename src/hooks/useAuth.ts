@@ -1,10 +1,11 @@
 "use client";
 import { Context } from "@/utils/context";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 
 const useAuth = () => {
-    const { login, setLogin, setUserId, accessToken, setAccessToken } = useContext(Context);
+  const { login, setLogin, setUserId, accessToken, setAccessToken } = useContext(Context);
+  const [loading, setLoading] = useState(true);
   
   useEffect(() => {
     if(accessToken === "") {
@@ -16,6 +17,7 @@ const useAuth = () => {
       if(userId) {
         setUserId(Number(userId));
       }
+      setLogin(true);
     } else {
       const token = localStorage.getItem("access_token");
       if(token) {
@@ -27,7 +29,9 @@ const useAuth = () => {
       }
       setLogin(true);
     }
-  }, []);
+
+    setLoading(false);
+  }, [loading]);
 }
 
 export default useAuth;

@@ -14,6 +14,7 @@ const TravelDetailPage = () => {
     <div className={styles.container}>
       <h1 className="absolute top-[32%]">{data.travel.title}</h1>
       <div className={styles.outline}>
+        <h1>참여인원</h1>
         {data.members.map((item, index) => {
           return(
             <div key={index}>
@@ -22,7 +23,7 @@ const TravelDetailPage = () => {
           )
         })}
       </div>
-        <ModalComponent />
+        <ModalComponent id={data.travel.id} />
     </div>
   )
   }
