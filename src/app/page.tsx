@@ -29,19 +29,8 @@ export default function Home() {
     router.push("/share");
   }
 
-  const handleCreateTravel = async () => {
-    try {
-      if(userId === -1) {
-        localStorage.getItem("user_id");
-        setUserId(Number(localStorage.getItem("user_id")));
-      }
-      const response = await axiosInstance.post(`${BACKEND_URL}/travel`, {
-        id: userId,
-      });
-      console.log(response.data);
-    } catch(e) {
-      console.log(e);
-    }
+  const handleCreateTravel = () => {
+    router.push("/travel/create")
   }
 
   const handleShowTravel = () => {

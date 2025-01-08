@@ -21,7 +21,7 @@ const ModalComponent = ({id}: Props) => {
       const response = await axiosInstance.post(`${BACKEND_URL}/travel/share`, {
         id: id,
       });
-      const frontLink = `${FRONT_URL}${response.data}`;
+      const frontLink = `${FRONT_URL}/${response.data}`;
       setLink(frontLink);
     } catch(e) {
       console.log(e);
