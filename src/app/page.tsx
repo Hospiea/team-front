@@ -37,12 +37,23 @@ export default function Home() {
   }
 
   const handleShowTravel = () => {
+    if(!login) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
     router.push("/travel")
   }
 
   useEffect(() => {
     if(localStorage.getItem("user_id") && localStorage.getItem("access_token")) {
       setLogin(true);
+    }
+
+    return () => {
+      if(!login) {
+        alert("로그인이 필요합니다.");
+        router.push("/");
+      }
     }
   }, []);
   
