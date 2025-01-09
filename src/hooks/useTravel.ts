@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { useContext, useEffect } from "react";
 
 
-const useTravel = (options?: UseQueryOptions<null, unknown, Travel[]>) => {
+const useTravel = (options?: UseQueryOptions<Travel[], unknown, Travel[]>) => {
   const {userId, setUserId} = useContext(Context);
 
   useEffect(() => {
@@ -20,12 +20,12 @@ const useTravel = (options?: UseQueryOptions<null, unknown, Travel[]>) => {
   return useQuery({
     queryKey: ["travel"],
     queryFn: async () => {
-      const response = await axiosInstance.get(`${BACKEND_URL}/travel/${userId}`);
-      return response.data
+      const response = await axiosInstance.get<Travel[]>(`${BACKEND_URL}/travel/${userId}`);
+      return response.data;
     },
     enabled: userId !== -1,
     ...options
-    });
+  });
 }
 
 const useGetTravel = (options?: UseQueryOptions<null, unknown, Travel>) => {

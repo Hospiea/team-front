@@ -2,7 +2,6 @@
 import { useGetTravel } from "@/hooks/useTravel";
 import { useEffect } from "react";
 import styles from "./style.module.css";
-import ModalComponent from "@/components/Modal/Modal";
 
 
 const TravelDetailPage = () => {
