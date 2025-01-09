@@ -1,6 +1,6 @@
 "use client";
 import { BACKEND_URL } from "@/config/config";
-import { DetailTravel, Travel } from "@/types/board";
+import { DetailTravel, Travel, TravelDetail } from "@/types/board";
 import { axiosInstance } from "@/utils/axiosInstance";
 import { Context } from "@/utils/context";
 import { useQuery, UseQueryOptions } from "@tanstack/react-query";
@@ -28,7 +28,7 @@ const useTravel = (options?: UseQueryOptions<Travel[], unknown, Travel[]>) => {
   });
 }
 
-const useGetTravel = (options?: UseQueryOptions<null, unknown, Travel>) => {
+const useGetTravel = (options?: UseQueryOptions<null, unknown, TravelDetail>) => {
   const search = usePathname();
   const id = search.trimStart().split("/travel/detail/")[1];
 

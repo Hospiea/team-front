@@ -30,3 +30,9 @@ export type DetailTravel = {
   travel: BoardList;
   members: UserDto[];
 }
+
+
+export type TravelDetail = {
+  members: UserDto[],
+  travel: Travel,
+}
