@@ -27,7 +27,7 @@ const CreateTravelPage = () => {
           title: value,
         });
         
-        alert("모임이 생성되었습니다.");
+        alert(`모임이 생성되었습니다.`);
       } catch(e) {
         console.log(e);
       }

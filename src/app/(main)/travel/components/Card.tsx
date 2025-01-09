@@ -2,6 +2,8 @@ import { BoardList } from "@/types/board";
 import styles from "./card.module.css";
 import { useRouter } from "next/navigation";
 import { FRONT_URL } from "@/config/config";
+import { useContext } from "react";
+import { Context } from "@/utils/context";
 
 
 const TravelCardComponent = ({id, title}: BoardList) => {

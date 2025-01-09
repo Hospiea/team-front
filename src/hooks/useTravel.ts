@@ -1,15 +1,21 @@
+"use client";
 import { BACKEND_URL } from "@/config/config";
-import { BoardList, DetailTravel } from "@/types/board";
+import { DetailTravel, Travel } from "@/types/board";
 import { axiosInstance } from "@/utils/axiosInstance";
 import { Context } from "@/utils/context";
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useQuery, UseQueryOptions } from "@tanstack/react-query";
+import { usePathname } from "next/navigation";
+import { useContext, useEffect } from "react";
 
 
-const useTravel = (options?: UseQueryOptions<null, unknown, BoardList[]>) => {
-  const {userId} = useContext(Context);
+const useTravel = (options?: UseQueryOptions<null, unknown, Travel[]>) => {
+  const {userId, setUserId} = useContext(Context);
+
+  useEffect(() => {
+    if(userId === -1) {
+      setUserId(Number(localStorage.getItem("user_id")));
+    }
+  }, [userId]);
 
   return useQuery({
     queryKey: ["travel"],
@@ -17,14 +23,14 @@ const useTravel = (options?: UseQueryOptions<null, unknown, BoardList[]>) => {
       const response = await axiosInstance.get(`${BACKEND_URL}/travel/${userId}`);
       return response.data
     },
+    enabled: userId !== -1,
     ...options
     });
 }
 
-const useGetTravel = (options?: UseQueryOptions<null, unknown, DetailTravel>) => {
+const useGetTravel = (options?: UseQueryOptions<null, unknown, Travel>) => {
   const search = usePathname();
   const id = search.trimStart().split("/travel/detail/")[1];
-  
 
   return useQuery({
     queryKey: ["travel", id],
@@ -36,4 +42,4 @@ const useGetTravel = (options?: UseQueryOptions<null, unknown, DetailTravel>) =>
   });
 }
 
-export { useTravel, useGetTravel };
+export { useGetTravel, useTravel };

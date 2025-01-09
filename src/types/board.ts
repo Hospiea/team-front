@@ -18,6 +18,14 @@ export type BoardList = {
   title: string;
 }
 
+
+
+export type Travel = {
+  id: number;
+  share_link: string;
+  title: string;
+}
+
 export type DetailTravel = {
   travel: BoardList;
   members: UserDto[];
