@@ -45,6 +45,14 @@ export default function Home() {
     router.push("/travel")
   }
 
+  const handleUseAi = () => {
+    if(!login) {
+      alert("로그인이 필요합니다.");
+      return;
+    }
+    router.push("/ai")
+  }
+
   useEffect(() => {
     if(localStorage.getItem("user_id") && localStorage.getItem("access_token")) {
       setLogin(true);
@@ -70,6 +78,9 @@ export default function Home() {
           </button>
           <button onClick={handleJoinTravel}>
             여행 참여하기
+          </button>
+          <button onClick={handleUseAi}>
+            AI 이용하기
           </button>
           </div>
         </div>
