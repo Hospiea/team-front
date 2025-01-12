@@ -15,7 +15,7 @@ const AiPage = () => {
     const res = await axiosInstance.post(`${BACKEND_URL}/ai/gen`, {
       content: val,
     });
-    console.log(res.data);
+    
     setResult(res.data.response);
     setLoading(false);
   };
