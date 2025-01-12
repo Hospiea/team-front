@@ -22,7 +22,7 @@ const AiPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.result}>
-        <div dangerouslySetInnerHTML={{ __html: marked(result) }} />
+        {result && <div dangerouslySetInnerHTML={{ __html: marked(result) }} />}
       </div>
       <div className="flex flex-col items-center gap-4">
         <textarea
