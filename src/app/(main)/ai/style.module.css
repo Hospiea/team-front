@@ -24,4 +24,5 @@
 .result {
   width: 90vw;
   overflow-y: auto;
+  margin-bottom: 2em;
 }
