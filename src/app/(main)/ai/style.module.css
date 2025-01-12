@@ -14,7 +14,14 @@
   height: 20vh
 }
 
+@media (max-width: 768px) {
+  .input {
+    width: 80vw;
+    height: 20vh;
+  }
+}
+
 .result {
-  width: 50vw;
-  
+  width: 90vw;
+  overflow-y: auto;
 }
